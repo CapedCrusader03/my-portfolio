@@ -11,20 +11,21 @@ import { DATA } from "@/data/resume";
 export function Projects() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const projects = DATA.projects;
+  const projectsPerView = 3;
 
   const nextProject = () => {
     setCurrentIndex((prevIndex) =>
-      prevIndex === projects.length - 1 ? 0 : prevIndex + 1
+      prevIndex >= projects.length - projectsPerView ? 0 : prevIndex + projectsPerView
     );
   };
 
   const prevProject = () => {
     setCurrentIndex((prevIndex) =>
-      prevIndex === 0 ? projects.length - 1 : prevIndex - 1
+      prevIndex === 0 ? Math.max(0, projects.length - projectsPerView) : Math.max(0, prevIndex - projectsPerView)
     );
   };
 
-  const currentProject = projects[currentIndex];
+  const visibleProjects = projects.slice(currentIndex, currentIndex + projectsPerView);
 
   return (
     <section id="projects" className="py-20">
@@ -42,7 +43,7 @@ export function Projects() {
         </BlurFade>
 
         <BlurFade delay={0.1}>
-          <div className="relative max-w-4xl mx-auto">
+          <div className="relative max-w-7xl mx-auto">
             {/* Navigation Arrows */}
             <div className="absolute left-0 top-1/2 -translate-y-1/2 z-10">
               <Button
@@ -69,7 +70,7 @@ export function Projects() {
             </div>
 
             {/* Project Display */}
-            <div className="overflow-hidden rounded-2xl px-16">
+            <div className="overflow-hidden rounded-2xl px-12">
               <AnimatePresence mode="wait">
                 <motion.div
                   key={currentIndex}
@@ -80,43 +81,51 @@ export function Projects() {
                     duration: 0.5,
                     ease: [0.25, 0.46, 0.45, 0.94]
                   }}
-                  className="flex justify-center"
+                  className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
                 >
-                  <div className="w-full max-w-2xl">
-                    <ProjectCard
-                      title={currentProject.title}
-                      description={currentProject.description}
-                      technologies={currentProject.technologies}
-                      image={currentProject.image}
-                      video={currentProject.video}
-                      links={currentProject.links}
-                      active={currentProject.active}
-                    />
-                  </div>
+                  {visibleProjects.map((project, index) => (
+                    <motion.div
+                      key={`${project.title}-${index}`}
+                      initial={{ opacity: 0, y: 20 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ delay: index * 0.1 }}
+                      className="w-full"
+                    >
+                      <ProjectCard
+                        title={project.title}
+                        description={project.description}
+                        technologies={project.technologies}
+                        image={project.image}
+                        video={project.video}
+                        links={project.links}
+                        active={project.active}
+                      />
+                    </motion.div>
+                  ))}
                 </motion.div>
               </AnimatePresence>
             </div>
 
-            {/* Project Indicators */}
+            {/* Project Page Indicators */}
             <div className="flex justify-center space-x-2 mt-8">
-              {projects.map((_, index) => (
+              {Array.from({ length: Math.ceil(projects.length / projectsPerView) }, (_, pageIndex) => (
                 <button
-                  key={index}
-                  onClick={() => setCurrentIndex(index)}
+                  key={pageIndex}
+                  onClick={() => setCurrentIndex(pageIndex * projectsPerView)}
                   className={`h-3 w-3 rounded-full transition-all duration-300 ${
-                    index === currentIndex
+                    Math.floor(currentIndex / projectsPerView) === pageIndex
                       ? "bg-primary scale-125"
                       : "bg-border/50 hover:bg-border"
                   }`}
-                  aria-label={`Go to project ${index + 1}`}
+                  aria-label={`Go to project page ${pageIndex + 1}`}
                 />
               ))}
             </div>
 
-            {/* Project Counter */}
+            {/* Project Range Counter */}
             <div className="text-center mt-4">
               <span className="text-sm text-muted-foreground">
-                {currentIndex + 1} of {projects.length}
+                {Math.min(currentIndex + 1, projects.length)} - {Math.min(currentIndex + projectsPerView, projects.length)} of {projects.length}
               </span>
             </div>
           </div>

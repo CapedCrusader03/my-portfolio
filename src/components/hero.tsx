@@ -54,9 +54,9 @@ export function Hero() {
         >
           <h1 className="text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl lg:text-7xl">
             <span className="block">Hi, I'm {DATA.name}</span>
-            <span className="block bg-gradient-to-r from-primary to-primary/60 bg-clip-text text-transparent">
+            {/* <span className="block bg-gradient-to-r from-primary to-primary/60 bg-clip-text text-transparent">
               Software Engineer
-            </span>
+            </span> */}
           </h1>
         </motion.div>
 

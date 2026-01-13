@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { Badge } from "@/components/ui/badge";
 import { TypingAnimation } from "@/components/typing-animation";
+import { SocialLinks } from "@/components/social-links";
 import { DATA } from "@/data/resume";
 
 export function Hero() {
@@ -33,21 +34,11 @@ export function Hero() {
           </Badge>
         </motion.div>
 
-        {/* Typing Animation */}
-        <motion.div
-          initial={{ opacity: 0, scale: 0.8 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.5, delay: 0.2 }}
-          className="mb-6"
-        >
-          <TypingAnimation />
-        </motion.div>
-
         {/* Location */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.3 }}
+          transition={{ duration: 0.5, delay: 0.1 }}
         >
           <p className="text-lg text-muted-foreground mb-8">
             Based in San Francisco, CA
@@ -73,18 +64,28 @@ export function Hero() {
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.4 }}
+          transition={{ duration: 0.5, delay: 0.2 }}
         >
           <p className="mx-auto max-w-2xl text-lg text-muted-foreground sm:text-xl leading-relaxed">
             {DATA.summary}
           </p>
         </motion.div>
 
+        {/* Typing Animation */}
+        <motion.div
+          initial={{ opacity: 0, scale: 0.8 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.5, delay: 0.3 }}
+          className="mb-8"
+        >
+          <TypingAnimation />
+        </motion.div>
+
         {/* CTA Buttons */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.5 }}
+          transition={{ duration: 0.5, delay: 0.4 }}
           className="flex flex-col sm:flex-row gap-4 justify-center pt-8"
         >
           <a
@@ -100,6 +101,9 @@ export function Hero() {
             Get In Touch
           </a>
         </motion.div>
+
+        {/* Social Links */}
+        <SocialLinks />
       </div>
     </section>
   );

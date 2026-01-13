@@ -8,7 +8,9 @@ A modern, pixel-perfect developer portfolio built with Next.js 14, TypeScript, T
 - **Smooth Animations**: Framer Motion for fluid transitions and scroll reveals
 - **Responsive Design**: Mobile-first approach with glassmorphism effects
 - **Dual Theme Support**: Light and dark modes with system preference detection
-- **Interactive Components**: Hover effects, marquee animations, and toast notifications
+- **Interactive Components**: Hover effects, marquee animations, typing animation, and toast notifications
+- **Social Integration**: GitHub, LinkedIn, and X (Twitter) links with hover animations
+- **Contact Form**: Functional contact form with email integration
 - **Performance Optimized**: Built with modern web standards
 
 ## Tech Stack
@@ -16,9 +18,11 @@ A modern, pixel-perfect developer portfolio built with Next.js 14, TypeScript, T
 - **Framework**: Next.js 14 (App Router)
 - **Language**: TypeScript
 - **Styling**: Tailwind CSS
-- **Animations**: Framer Motion
+- **Animations**: Framer Motion, React Type Animation
+- **Forms**: React Hook Form with Zod validation
 - **UI Components**: Shadcn UI (Radix UI)
 - **Icons**: Lucide React
+- **Theme**: Next Themes (Light/Dark mode)
 - **Fonts**: Geist Sans (Google Fonts)
 
 ## Getting Started
@@ -73,6 +77,33 @@ npm run build
 npm run start
 ```
 
+## Contact Form Setup
+
+The contact form currently uses a `mailto:` link to open the user's email client. For production use, consider integrating with:
+
+- **EmailJS**: Client-side email sending
+- **Formspree**: Simple form handling service
+- **Netlify Forms**: If deploying on Netlify
+- **Vercel Functions**: Serverless email sending
+
+To integrate with EmailJS:
+
+1. Sign up at [emailjs.com](https://emailjs.com)
+2. Get your service ID, template ID, and public key
+3. Update the contact form to use EmailJS instead of mailto
+
+Example integration:
+```typescript
+import emailjs from '@emailjs/browser';
+
+// In the onSubmit function
+await emailjs.send(
+  'YOUR_SERVICE_ID',
+  'YOUR_TEMPLATE_ID',
+  formData,
+  'YOUR_PUBLIC_KEY'
+);
+```
 
 ## License
 

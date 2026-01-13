@@ -19,6 +19,7 @@ export const DATA = {
     social: {
       GitHub: { name: "GitHub", url: "https://github.com/kshitij", icon: Icons.github },
       LinkedIn: { name: "LinkedIn", url: "https://linkedin.com/in/kshitij", icon: Icons.linkedin },
+      X: { name: "X (Twitter)", url: "https://twitter.com/kshitij", icon: Icons.twitter },
       email: { name: "Send Email", url: "mailto:kshitijkumar3@gmail.com", icon: Icons.mail },
     },
   },

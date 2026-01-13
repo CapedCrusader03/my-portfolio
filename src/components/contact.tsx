@@ -6,6 +6,7 @@ import { Copy, Calendar, Mail, Phone } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { toast } from "sonner";
 import { BlurFade } from "@/components/blur-fade";
+import { ContactForm } from "@/components/contact-form";
 import { DATA } from "@/data/resume";
 
 export function Contact() {
@@ -27,19 +28,30 @@ export function Contact() {
     <section id="contact" className="py-20">
       <div className="w-full max-w-none px-6 lg:px-8">
         <BlurFade>
-          <div className="text-center max-w-2xl mx-auto">
+          <div className="text-center mb-12">
             <h2 className="text-3xl font-bold tracking-tight sm:text-4xl mb-4">
               Let's build something extraordinary together
             </h2>
-            <p className="text-lg text-muted-foreground mb-8">
+            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
               I'm always interested in new opportunities and exciting projects.
-              Let's discuss how we can work together to bring your ideas to life.
+              Fill out the form below or reach out directly.
             </p>
+          </div>
+        </BlurFade>
 
-            <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
+        {/* Contact Form */}
+        <ContactForm />
+
+        {/* Alternative Contact Methods */}
+        <BlurFade delay={0.2}>
+          <div className="mt-16 text-center">
+            <p className="text-muted-foreground mb-6">Or reach out directly:</p>
+
+            <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
               <Button
                 onClick={copyEmail}
                 disabled={isCopying}
+                variant="outline"
                 className="flex items-center space-x-2"
               >
                 <Copy className="h-4 w-4" />

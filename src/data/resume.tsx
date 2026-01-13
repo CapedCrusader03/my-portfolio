@@ -4,7 +4,7 @@ export const DATA = {
   name: "Kshitij Kumar",
   initials: "KK",
   url: "https://kshitij-kumar.vercel.app",
-  summary: "Software Engineer with 3 years of experience, committed to engineering excellence and shipping high-quality, fault-tolerant code. Proficient in Python, TypeScript, Java. I prioritize rigorous code quality while designing low-latency, scalable software. I apply this technical depth to Distributed Systems and Agentic AI, taking full ownership of performance and reliability from design to deployment.",
+  summary: "Full-Stack Software Engineer specializing in <span class='text-blue-400'>TypeScript</span>, <span class='text-green-400'>Python</span>, and <span class='text-orange-400'>Java</span> development. Expert in building scalable <span class='text-purple-400'>Distributed Systems</span> and cutting-edge <span class='text-pink-400'>Agentic AI</span> solutions. Proficient in modern <span class='text-cyan-400'>databases</span> including PostgreSQL, MongoDB, and cloud architectures. Passionate about engineering excellence, delivering high-performance, fault-tolerant applications with rigorous code quality and low-latency optimizations.",
   avatarUrl: "/avatar.png",
   skills: ["Python", "Java", "TypeScript", "JavaScript", "C++", "SQL", "Spring Boot", "FastAPI", "Spring Cloud", "Node.js", "Apache Kafka", "RabbitMQ", "Flink", "Hibernate", "LangGraph", "LlamaIndex", "Agentic Workflows", "PgVector", "RAG Pipelines", "React", "Next.js", "Angular", "HTML", "CSS", "PostgreSQL", "MongoDB", "Redis", "Oracle", "MySQL", "Snowflake", "Elasticsearch", "AWS", "Docker", "Kubernetes", "Airflow", "Git", "Apache Tomcat", "NginX", "Maven", "Prometheus", "Grafana"],
   navbar: [

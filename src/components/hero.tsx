@@ -66,9 +66,10 @@ export function Hero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.2 }}
         >
-          <p className="mx-auto max-w-2xl text-lg text-muted-foreground sm:text-xl leading-relaxed">
-            {DATA.summary}
-          </p>
+          <p
+            className="mx-auto max-w-2xl text-lg text-muted-foreground sm:text-xl leading-relaxed"
+            dangerouslySetInnerHTML={{ __html: DATA.summary }}
+          />
         </motion.div>
 
         {/* Typing Animation */}

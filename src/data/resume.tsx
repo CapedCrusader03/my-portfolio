@@ -42,7 +42,7 @@ export const DATA = {
       href: "https://k-docs-demo.vercel.app",
       dates: "2023 - 2024",
       active: true,
-      description: "Implemented a real-time collaborative editor replicating Google Docs. Used Yjs (CRDTs) and WebSockets to enable conflict-free concurrent editing, ensuring eventual consistency and sub-100ms latency for multiple users without central locking. Designed a secure document storage layer using PostgreSQL and Node.js, implementing granular Role-Based Access Control (RBAC) within a containerized Docker environment hosted on AWS.",
+      description: "<ul class='list-disc list-inside space-y-1 text-sm leading-relaxed'><li>Implemented a real-time collaborative editor replicating Google Docs</li><li>Used Yjs (CRDTs) and WebSockets to enable conflict-free concurrent editing, ensuring eventual consistency and sub-100ms latency for multiple users without central locking</li><li>Designed a secure document storage layer using PostgreSQL and Node.js, implementing granular Role-Based Access Control (RBAC) within a containerized Docker environment hosted on AWS</li></ul>",
       technologies: ["TypeScript", "Docker", "React", "PostgreSQL", "AWS", "WebSocket", "Yjs", "CRDTs"],
       links: [
         { type: "Website", href: "https://k-docs-demo.vercel.app", icon: Icons.globe },
@@ -56,7 +56,7 @@ export const DATA = {
       href: "https://ai-code-reviewer.vercel.app",
       dates: "2023 - 2024",
       active: true,
-      description: "Engineered an event-driven AI agent that consumes GitHub Webhooks via Apache Kafka to scale to 500+ concurrent PRs, utilizing Google Gemini to provide automated Quality Scores (0-100), Security audits, and Code Smell detection directly on Pull Requests. This reduces manual review cycles by 60%.",
+      description: "<ul class='list-disc list-inside space-y-1 text-sm leading-relaxed'><li>Engineered an event-driven AI agent that consumes GitHub Webhooks via Apache Kafka to scale to 500+ concurrent PRs, utilizing Google Gemini to provide automated Quality Scores (0-100), Security audits, and Code Smell detection directly on Pull Requests</li><li>This reduces manual review cycles by 60%</li></ul>",
       technologies: ["TypeScript", "Python", "FastAPI", "Apache Kafka", "Next.js", "Gemini API", "LLM", "MySQL", "GitHub Webhooks"],
       links: [
         { type: "Website", href: "https://ai-code-reviewer.vercel.app", icon: Icons.globe },
@@ -70,7 +70,7 @@ export const DATA = {
       href: "https://vibe-matcher.vercel.app",
       dates: "2022 - 2023",
       active: true,
-      description: "Developed a fault-tolerant microservices ecosystem using Spring Cloud and RabbitMQ for asynchronous messaging, integrating Hystrix Circuit Breakers and Spring Security to ensure high availability and secure data access across distributed services.",
+      description: "<ul class='list-disc list-inside space-y-1 text-sm leading-relaxed'><li>Developed a fault-tolerant microservices ecosystem using Spring Cloud and RabbitMQ for asynchronous messaging, integrating Hystrix Circuit Breakers and Spring Security to ensure high availability and secure data access across distributed services</li></ul>",
       technologies: ["Java", "Spring Boot", "Spring Security", "MySQL", "PostgreSQL", "RabbitMQ", "Spring Cloud", "Hystrix", "Microservices"],
       links: [
         { type: "Website", href: "https://vibe-matcher.vercel.app", icon: Icons.globe },

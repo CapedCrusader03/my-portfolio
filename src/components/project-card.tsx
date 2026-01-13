@@ -34,8 +34,9 @@ export function ProjectCard({
     <motion.div
       whileHover={{ scale: 1.02 }}
       transition={{ type: "spring", stiffness: 300, damping: 20 }}
+      className="h-full"
     >
-      <Card className="group h-full overflow-hidden border-border/50 bg-card/50 backdrop-blur-sm hover:bg-card/80 transition-all duration-300">
+      <Card className="group h-full min-h-[550px] overflow-hidden border-border/50 bg-card/50 backdrop-blur-sm hover:bg-card/80 transition-all duration-300 flex flex-col">
         {/* Project Image/Video */}
         {(image || video) && (
           <div className="relative aspect-video overflow-hidden">
@@ -60,7 +61,7 @@ export function ProjectCard({
           </div>
         )}
 
-        <CardHeader>
+        <CardHeader className="flex-shrink-0">
           <div className="flex items-start justify-between">
             <CardTitle className="text-xl font-semibold group-hover:text-primary transition-colors">
               {title}
@@ -80,14 +81,15 @@ export function ProjectCard({
               ))}
             </div>
           </div>
-          <CardDescription className="text-muted-foreground">
-            {description}
-          </CardDescription>
+          <CardDescription
+            className="text-muted-foreground"
+            dangerouslySetInnerHTML={{ __html: description }}
+          />
         </CardHeader>
 
-        <CardContent>
+        <CardContent className="flex-1 flex flex-col justify-end">
           {/* Tech Stack */}
-          <div className="flex flex-wrap gap-2">
+          <div className="flex flex-wrap gap-2 mt-4">
             {technologies.map((tech, index) => (
               <Badge
                 key={index}

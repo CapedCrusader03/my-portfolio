@@ -17,9 +17,9 @@ export const DATA = {
     email: "kshitijkumar3@gmail.com",
     tel: "+1-716-903-5420",
     social: {
-      GitHub: { name: "GitHub", url: "https://github.com/kshitij", icon: Icons.github },
-      LinkedIn: { name: "LinkedIn", url: "https://linkedin.com/in/kshitij", icon: Icons.linkedin },
-      X: { name: "X (Twitter)", url: "https://twitter.com/kshitij", icon: Icons.twitter },
+      GitHub: { name: "GitHub", url: "https://github.com/CapedCrusader03", icon: Icons.github },
+      LinkedIn: { name: "LinkedIn", url: "https://www.linkedin.com/in/kshitij-kumar-a-sentient-bot/", icon: Icons.linkedin },
+      X: { name: "X (Twitter)", url: "https://x.com/KshitijCodes", icon: Icons.twitter },
       email: { name: "Send Email", url: "mailto:kshitijkumar3@gmail.com", icon: Icons.mail },
     },
   },

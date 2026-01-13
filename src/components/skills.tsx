@@ -1,13 +1,16 @@
 "use client";
 
-import { motion } from "framer-motion";
-import { Badge } from "@/components/ui/badge";
+import { useEffect, useRef } from "react";
+import { gsap } from "gsap";
 import { BlurFade } from "@/components/blur-fade";
 import { skillIcons } from "@/components/skill-icons";
 import { DATA } from "@/data/resume";
 
 export function Skills() {
-  // Create two sets of skills for the two marquees
+  const marqueeRef1 = useRef<HTMLDivElement>(null);
+  const marqueeRef2 = useRef<HTMLDivElement>(null);
+
+  // Create 2x arrays for seamless marquee loop
   const skillsSet1 = [...DATA.skills, ...DATA.skills];
   const skillsSet2 = [...DATA.skills.slice().reverse(), ...DATA.skills.slice().reverse()];
 
@@ -36,6 +39,34 @@ export function Skills() {
     return skillColors[skillIndex % skillColors.length];
   };
 
+  useEffect(() => {
+    if (!marqueeRef1.current || !marqueeRef2.current) return;
+
+    // Create smooth marquee animations
+    const tl1 = gsap.timeline({ repeat: -1, paused: false });
+    tl1.to(marqueeRef1.current, {
+      x: '-50%', // Move through duplicated content
+      duration: 15,
+      ease: "none",
+    });
+
+    const tl2 = gsap.timeline({ repeat: -1, paused: false });
+    tl2.fromTo(marqueeRef2.current,
+      { x: '-50%' },
+      {
+        x: '0%',
+        duration: 17,
+        ease: "none",
+      }
+    );
+
+    // Cleanup function
+    return () => {
+      tl1.kill();
+      tl2.kill();
+    };
+  }, []);
+
   return (
     <section className="py-20 overflow-hidden">
       <div className="container max-w-6xl px-4 mx-auto">
@@ -50,74 +81,42 @@ export function Skills() {
           </div>
         </BlurFade>
 
-        <div className="space-y-8">
+        <div className="space-y-6">
           {/* First marquee - left to right */}
           <BlurFade delay={0.1}>
-            <div className="relative overflow-hidden rounded-xl bg-secondary/20 border border-border/20 p-6">
-              {/* Gradient masks for fade effect */}
-              <div className="absolute left-0 top-0 z-10 h-full w-24 bg-gradient-to-r from-secondary/20 to-transparent" />
-              <div className="absolute right-0 top-0 z-10 h-full w-24 bg-gradient-to-l from-secondary/20 to-transparent" />
-
-              {/* Marquee container - left to right */}
-              <motion.div
-                className="flex space-x-4"
-                animate={{
-                  x: ["0%", "-50%"],
-                }}
-                transition={{
-                  duration: 20,
-                  ease: "linear",
-                  repeat: Infinity,
-                }}
-              >
+            <div className="relative overflow-hidden py-4">
+              {/* GSAP marquee container - left to right */}
+              <div ref={marqueeRef1} className="flex space-x-4">
                 {skillsSet1.map((skill, index) => (
-                  <motion.div
+                  <div
                     key={`left-${skill}-${index}`}
-                    className="flex-shrink-0"
-                    whileHover={{ scale: 1.05 }}
-                    transition={{ type: "spring", stiffness: 400, damping: 17 }}
+                    className="flex-shrink-0 hover:scale-105 transition-transform duration-300"
                   >
                     <span className={`inline-flex items-center px-3 py-2 rounded-lg text-sm font-medium transition-all duration-300 whitespace-nowrap border ${getSkillColor(skill, index)}`}>
                       {skill}
                     </span>
-                  </motion.div>
+                  </div>
                 ))}
-              </motion.div>
+              </div>
             </div>
           </BlurFade>
 
           {/* Second marquee - right to left */}
           <BlurFade delay={0.2}>
-            <div className="relative overflow-hidden rounded-xl bg-secondary/20 border border-border/20 p-6">
-              {/* Gradient masks for fade effect */}
-              <div className="absolute left-0 top-0 z-10 h-full w-24 bg-gradient-to-r from-secondary/20 to-transparent" />
-              <div className="absolute right-0 top-0 z-10 h-full w-24 bg-gradient-to-l from-secondary/20 to-transparent" />
-
-              {/* Marquee container - right to left */}
-              <motion.div
-                className="flex space-x-4"
-                animate={{
-                  x: ["-50%", "0%"],
-                }}
-                transition={{
-                  duration: 25,
-                  ease: "linear",
-                  repeat: Infinity,
-                }}
-              >
+            <div className="relative overflow-hidden py-4">
+              {/* GSAP marquee container - right to left */}
+              <div ref={marqueeRef2} className="flex space-x-4">
                 {skillsSet2.map((skill, index) => (
-                  <motion.div
+                  <div
                     key={`right-${skill}-${index}`}
-                    className="flex-shrink-0"
-                    whileHover={{ scale: 1.05 }}
-                    transition={{ type: "spring", stiffness: 400, damping: 17 }}
+                    className="flex-shrink-0 hover:scale-105 transition-transform duration-300"
                   >
                     <span className={`inline-flex items-center px-3 py-2 rounded-lg text-sm font-medium transition-all duration-300 whitespace-nowrap border ${getSkillColor(skill, index)}`}>
                       {skill}
                     </span>
-                  </motion.div>
+                  </div>
                 ))}
-              </motion.div>
+              </div>
             </div>
           </BlurFade>
         </div>

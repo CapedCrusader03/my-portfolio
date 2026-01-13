@@ -27,7 +27,7 @@ export const DATA = {
     {
       company: "Wipro Ltd.",
       href: "https://www.wipro.com/",
-      badges: ["Java", "Spring Boot", "Apache Kafka"],
+      badges: ["Java", "Spring Boot", "React", "Python", "FastAPI", "CDC", "Microservices", "Git", "Maven", "PostgreSQL", "MySQL"],
       location: "Bangalore, India",
       title: "Software Engineer",
       logoUrl: "/wipro-logo.png",

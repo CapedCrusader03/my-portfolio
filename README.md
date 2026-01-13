@@ -7,7 +7,7 @@ A modern, pixel-perfect developer portfolio built with Next.js 14, TypeScript, T
 - **Modern Tech Stack**: Next.js 14 with App Router, TypeScript, and Tailwind CSS
 - **Smooth Animations**: Framer Motion for fluid transitions and scroll reveals
 - **Responsive Design**: Mobile-first approach with glassmorphism effects
-- **Dark Theme**: Strict dark mode with subtle noise texture
+- **Dual Theme Support**: Light and dark modes with system preference detection
 - **Interactive Components**: Hover effects, marquee animations, and toast notifications
 - **Performance Optimized**: Built with modern web standards
 

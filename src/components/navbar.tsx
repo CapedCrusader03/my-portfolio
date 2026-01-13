@@ -7,6 +7,7 @@ import { motion } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
+import { ThemeToggle } from "@/components/theme-toggle";
 import { DATA } from "@/data/resume";
 
 export function Navbar() {
@@ -44,6 +45,7 @@ export function Navbar() {
               </Link>
             );
           })}
+          <ThemeToggle />
         </nav>
 
         {/* Mobile Navigation */}
@@ -73,6 +75,9 @@ export function Navbar() {
                   </Link>
                 );
               })}
+              <div className="pt-4 border-t">
+                <ThemeToggle />
+              </div>
             </div>
           </SheetContent>
         </Sheet>

@@ -28,14 +28,14 @@ export function Skills() {
         <div className="space-y-8">
           {/* First marquee - left to right */}
           <BlurFade delay={0.1}>
-            <div className="relative overflow-hidden rounded-xl bg-secondary/20 border border-border/20 p-6">
+            <div className="relative overflow-hidden rounded-xl bg-secondary/20 border border-border/20 p-8">
               {/* Gradient masks for fade effect */}
               <div className="absolute left-0 top-0 z-10 h-full w-24 bg-gradient-to-r from-secondary/20 to-transparent" />
               <div className="absolute right-0 top-0 z-10 h-full w-24 bg-gradient-to-l from-secondary/20 to-transparent" />
 
               {/* Marquee container - left to right */}
               <motion.div
-                className="flex space-x-6"
+                className="flex space-x-8"
                 animate={{
                   x: ["0%", "-50%"],
                 }}
@@ -57,16 +57,16 @@ export function Skills() {
                       transition={{ type: "spring", stiffness: 400, damping: 17 }}
                     >
                       <div
-                        className="flex items-center justify-center w-14 h-14 rounded-xl bg-background/80 border border-border/30 hover:bg-background hover:border-primary/30 transition-all duration-300 cursor-pointer shadow-sm"
+                        className="flex items-center justify-center w-16 h-16 rounded-xl bg-background/80 border border-border/30 hover:bg-background hover:border-primary/30 transition-all duration-300 cursor-pointer shadow-sm"
                         style={{ color: skillData?.color || "#6b7280" }}
                       >
-                        {IconComponent && <IconComponent />}
+                        {IconComponent && <IconComponent className="w-8 h-8" />}
                       </div>
 
-                      {/* Tooltip */}
-                      <div className="absolute -top-14 left-1/2 transform -translate-x-1/2 px-3 py-2 bg-background border border-border rounded-lg text-xs opacity-0 group-hover:opacity-100 transition-opacity duration-200 whitespace-nowrap pointer-events-none z-20 shadow-lg">
+                      {/* Tooltip - positioned below the icon */}
+                      <div className="absolute top-full left-1/2 transform -translate-x-1/2 mt-2 px-2 py-1 bg-background border border-border rounded-md text-xs opacity-0 group-hover:opacity-100 transition-opacity duration-200 whitespace-nowrap pointer-events-none z-20 shadow-md">
                         {skill}
-                        <div className="absolute top-full left-1/2 transform -translate-x-1/2 -mt-1 border-l-4 border-r-4 border-t-4 border-transparent border-t-background"></div>
+                        <div className="absolute -top-1 left-1/2 transform -translate-x-1/2 border-l-3 border-r-3 border-b-3 border-transparent border-b-background"></div>
                       </div>
                     </motion.div>
                   );
@@ -77,14 +77,14 @@ export function Skills() {
 
           {/* Second marquee - right to left */}
           <BlurFade delay={0.2}>
-            <div className="relative overflow-hidden rounded-xl bg-secondary/20 border border-border/20 p-6">
+            <div className="relative overflow-hidden rounded-xl bg-secondary/20 border border-border/20 p-8">
               {/* Gradient masks for fade effect */}
               <div className="absolute left-0 top-0 z-10 h-full w-24 bg-gradient-to-r from-secondary/20 to-transparent" />
               <div className="absolute right-0 top-0 z-10 h-full w-24 bg-gradient-to-l from-secondary/20 to-transparent" />
 
               {/* Marquee container - right to left */}
               <motion.div
-                className="flex space-x-6"
+                className="flex space-x-8"
                 animate={{
                   x: ["-50%", "0%"],
                 }}
@@ -106,16 +106,16 @@ export function Skills() {
                       transition={{ type: "spring", stiffness: 400, damping: 17 }}
                     >
                       <div
-                        className="flex items-center justify-center w-14 h-14 rounded-xl bg-background/80 border border-border/30 hover:bg-background hover:border-primary/30 transition-all duration-300 cursor-pointer shadow-sm"
+                        className="flex items-center justify-center w-16 h-16 rounded-xl bg-background/80 border border-border/30 hover:bg-background hover:border-primary/30 transition-all duration-300 cursor-pointer shadow-sm"
                         style={{ color: skillData?.color || "#6b7280" }}
                       >
-                        {IconComponent && <IconComponent />}
+                        {IconComponent && <IconComponent className="w-8 h-8" />}
                       </div>
 
-                      {/* Tooltip */}
-                      <div className="absolute -top-14 left-1/2 transform -translate-x-1/2 px-3 py-2 bg-background border border-border rounded-lg text-xs opacity-0 group-hover:opacity-100 transition-opacity duration-200 whitespace-nowrap pointer-events-none z-20 shadow-lg">
+                      {/* Tooltip - positioned below the icon */}
+                      <div className="absolute top-full left-1/2 transform -translate-x-1/2 mt-2 px-2 py-1 bg-background border border-border rounded-md text-xs opacity-0 group-hover:opacity-100 transition-opacity duration-200 whitespace-nowrap pointer-events-none z-20 shadow-md">
                         {skill}
-                        <div className="absolute top-full left-1/2 transform -translate-x-1/2 -mt-1 border-l-4 border-r-4 border-t-4 border-transparent border-t-background"></div>
+                        <div className="absolute -top-1 left-1/2 transform -translate-x-1/2 border-l-3 border-r-3 border-b-3 border-transparent border-b-background"></div>
                       </div>
                     </motion.div>
                   );

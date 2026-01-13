@@ -1,36 +1,82 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Developer Portfolio
+
+A modern, pixel-perfect developer portfolio built with Next.js 14, TypeScript, Tailwind CSS, and Framer Motion.
+
+## Features
+
+- **Modern Tech Stack**: Next.js 14 with App Router, TypeScript, and Tailwind CSS
+- **Smooth Animations**: Framer Motion for fluid transitions and scroll reveals
+- **Responsive Design**: Mobile-first approach with glassmorphism effects
+- **Dark Theme**: Strict dark mode with subtle noise texture
+- **Interactive Components**: Hover effects, marquee animations, and toast notifications
+- **Performance Optimized**: Built with modern web standards
+
+## Tech Stack
+
+- **Framework**: Next.js 14 (App Router)
+- **Language**: TypeScript
+- **Styling**: Tailwind CSS
+- **Animations**: Framer Motion
+- **UI Components**: Shadcn UI (Radix UI)
+- **Icons**: Lucide React
+- **Fonts**: Geist Sans (Google Fonts)
 
 ## Getting Started
 
-First, run the development server:
+1. **Install dependencies:**
+   ```bash
+   npm install
+   ```
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+2. **Run the development server:**
+   ```bash
+   npm run dev
+   ```
+
+3. **Open [http://localhost:3000](http://localhost:3000) in your browser**
+
+## Project Structure
+
+```
+src/
+├── app/                    # Next.js app directory
+│   ├── globals.css        # Global styles with dark theme
+│   ├── layout.tsx         # Root layout
+│   └── page.tsx           # Home page
+├── components/            # Reusable components
+│   ├── ui/               # Shadcn UI components
+│   ├── navbar.tsx        # Navigation header
+│   ├── hero.tsx          # Hero section
+│   ├── projects.tsx      # Projects showcase
+│   ├── skills.tsx        # Skills marquee
+│   ├── contact.tsx       # Contact section
+│   └── footer.tsx        # Site footer
+├── data/                 # Static data
+│   └── resume.tsx        # Portfolio data
+└── lib/                  # Utilities
+    └── utils.ts          # Tailwind utility functions
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Customization
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+1. **Update Personal Information**: Edit `src/data/resume.tsx`
+2. **Add Projects**: Update the `projects` array in the data file
+3. **Customize Styling**: Modify `src/app/globals.css`
+4. **Add Images**: Place images in the `public/` directory
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Deployment
 
-## Learn More
+This portfolio is optimized for deployment on Vercel:
 
-To learn more about Next.js, take a look at the following resources:
+```bash
+npm run build
+npm run start
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Inspiration
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+This portfolio is inspired by [Shivam Singh Mer's portfolio](https://shivammer.vercel.app/) with a focus on clean design, smooth animations, and modern web technologies.
 
-## Deploy on Vercel
+## License
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Built for portfolio purposes. Feel free to use as inspiration for your own projects.

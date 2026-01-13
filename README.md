@@ -9,6 +9,7 @@ A modern, pixel-perfect developer portfolio built with Next.js 14, TypeScript, T
 - **Responsive Design**: Mobile-first approach with glassmorphism effects
 - **Dual Theme Support**: Light and dark modes with system preference detection
 - **Interactive Components**: Hover effects, marquee animations, typing animation, and toast notifications
+- **Dual Marquee Skills**: Two infinite marquees (left-to-right & right-to-left) with technology logos and hover tooltips
 - **Social Integration**: GitHub, LinkedIn, and X (Twitter) links with hover animations
 - **Contact Form**: Functional contact form with email integration
 - **Performance Optimized**: Built with modern web standards

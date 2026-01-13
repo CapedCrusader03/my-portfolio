@@ -3,15 +3,17 @@
 import { motion } from "framer-motion";
 import { Badge } from "@/components/ui/badge";
 import { BlurFade } from "@/components/blur-fade";
+import { skillIcons } from "@/components/skill-icons";
 import { DATA } from "@/data/resume";
 
 export function Skills() {
-  // Duplicate skills array for seamless infinite scroll
-  const duplicatedSkills = [...DATA.skills, ...DATA.skills];
+  // Create two sets of skills for the two marquees
+  const skillsSet1 = [...DATA.skills, ...DATA.skills];
+  const skillsSet2 = [...DATA.skills.slice().reverse(), ...DATA.skills.slice().reverse()];
 
   return (
     <section className="py-20 overflow-hidden">
-      <div className="w-full max-w-none px-6 lg:px-8">
+      <div className="container max-w-6xl px-4 mx-auto">
         <BlurFade>
           <div className="text-center mb-16">
             <h2 className="text-3xl font-bold tracking-tight sm:text-4xl mb-4">
@@ -23,42 +25,105 @@ export function Skills() {
           </div>
         </BlurFade>
 
-        <BlurFade delay={0.1}>
-          <div className="relative flex justify-center">
-            {/* Gradient masks for fade effect */}
-            <div className="absolute left-0 top-0 z-10 h-full w-32 bg-gradient-to-r from-background to-transparent" />
-            <div className="absolute right-0 top-0 z-10 h-full w-32 bg-gradient-to-l from-background to-transparent" />
+        <div className="space-y-8">
+          {/* First marquee - left to right */}
+          <BlurFade delay={0.1}>
+            <div className="relative overflow-hidden rounded-xl bg-secondary/20 border border-border/20 p-6">
+              {/* Gradient masks for fade effect */}
+              <div className="absolute left-0 top-0 z-10 h-full w-24 bg-gradient-to-r from-secondary/20 to-transparent" />
+              <div className="absolute right-0 top-0 z-10 h-full w-24 bg-gradient-to-l from-secondary/20 to-transparent" />
 
-            {/* Marquee container */}
-            <motion.div
-              className="flex space-x-4"
-              animate={{
-                x: ["0%", "-50%"],
-              }}
-              transition={{
-                duration: 20,
-                ease: "linear",
-                repeat: Infinity,
-              }}
-            >
-              {duplicatedSkills.map((skill, index) => (
-                <motion.div
-                  key={`${skill}-${index}`}
-                  className="flex-shrink-0"
-                  whileHover={{ scale: 1.05 }}
-                  transition={{ type: "spring", stiffness: 400, damping: 17 }}
-                >
-                  <Badge
-                    variant="secondary"
-                    className="px-4 py-2 text-sm font-medium bg-secondary/50 text-secondary-foreground hover:bg-secondary/80 border-border/50"
-                  >
-                    {skill}
-                  </Badge>
-                </motion.div>
-              ))}
-            </motion.div>
-          </div>
-        </BlurFade>
+              {/* Marquee container - left to right */}
+              <motion.div
+                className="flex space-x-6"
+                animate={{
+                  x: ["0%", "-50%"],
+                }}
+                transition={{
+                  duration: 25,
+                  ease: "linear",
+                  repeat: Infinity,
+                }}
+              >
+                {skillsSet1.map((skill, index) => {
+                  const skillData = skillIcons[skill];
+                  const IconComponent = skillData?.icon;
+
+                  return (
+                    <motion.div
+                      key={`left-${skill}-${index}`}
+                      className="flex-shrink-0 group relative"
+                      whileHover={{ scale: 1.1 }}
+                      transition={{ type: "spring", stiffness: 400, damping: 17 }}
+                    >
+                      <div
+                        className="flex items-center justify-center w-14 h-14 rounded-xl bg-background/80 border border-border/30 hover:bg-background hover:border-primary/30 transition-all duration-300 cursor-pointer shadow-sm"
+                        style={{ color: skillData?.color || "#6b7280" }}
+                      >
+                        {IconComponent && <IconComponent />}
+                      </div>
+
+                      {/* Tooltip */}
+                      <div className="absolute -top-14 left-1/2 transform -translate-x-1/2 px-3 py-2 bg-background border border-border rounded-lg text-xs opacity-0 group-hover:opacity-100 transition-opacity duration-200 whitespace-nowrap pointer-events-none z-20 shadow-lg">
+                        {skill}
+                        <div className="absolute top-full left-1/2 transform -translate-x-1/2 -mt-1 border-l-4 border-r-4 border-t-4 border-transparent border-t-background"></div>
+                      </div>
+                    </motion.div>
+                  );
+                })}
+              </motion.div>
+            </div>
+          </BlurFade>
+
+          {/* Second marquee - right to left */}
+          <BlurFade delay={0.2}>
+            <div className="relative overflow-hidden rounded-xl bg-secondary/20 border border-border/20 p-6">
+              {/* Gradient masks for fade effect */}
+              <div className="absolute left-0 top-0 z-10 h-full w-24 bg-gradient-to-r from-secondary/20 to-transparent" />
+              <div className="absolute right-0 top-0 z-10 h-full w-24 bg-gradient-to-l from-secondary/20 to-transparent" />
+
+              {/* Marquee container - right to left */}
+              <motion.div
+                className="flex space-x-6"
+                animate={{
+                  x: ["-50%", "0%"],
+                }}
+                transition={{
+                  duration: 30,
+                  ease: "linear",
+                  repeat: Infinity,
+                }}
+              >
+                {skillsSet2.map((skill, index) => {
+                  const skillData = skillIcons[skill];
+                  const IconComponent = skillData?.icon;
+
+                  return (
+                    <motion.div
+                      key={`right-${skill}-${index}`}
+                      className="flex-shrink-0 group relative"
+                      whileHover={{ scale: 1.1 }}
+                      transition={{ type: "spring", stiffness: 400, damping: 17 }}
+                    >
+                      <div
+                        className="flex items-center justify-center w-14 h-14 rounded-xl bg-background/80 border border-border/30 hover:bg-background hover:border-primary/30 transition-all duration-300 cursor-pointer shadow-sm"
+                        style={{ color: skillData?.color || "#6b7280" }}
+                      >
+                        {IconComponent && <IconComponent />}
+                      </div>
+
+                      {/* Tooltip */}
+                      <div className="absolute -top-14 left-1/2 transform -translate-x-1/2 px-3 py-2 bg-background border border-border rounded-lg text-xs opacity-0 group-hover:opacity-100 transition-opacity duration-200 whitespace-nowrap pointer-events-none z-20 shadow-lg">
+                        {skill}
+                        <div className="absolute top-full left-1/2 transform -translate-x-1/2 -mt-1 border-l-4 border-r-4 border-t-4 border-transparent border-t-background"></div>
+                      </div>
+                    </motion.div>
+                  );
+                })}
+              </motion.div>
+            </div>
+          </BlurFade>
+        </div>
       </div>
     </section>
   );

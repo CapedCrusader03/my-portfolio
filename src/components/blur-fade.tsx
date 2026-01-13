@@ -22,7 +22,7 @@ export function BlurFade({
   const [hasAnimated, setHasAnimated] = useState(false);
   const isInView = useInView(ref, {
     once: true,
-    margin: inViewMargin,
+    margin: inViewMargin as any,
     amount: 0.1,
   });
 

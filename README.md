@@ -73,9 +73,6 @@ npm run build
 npm run start
 ```
 
-## Inspiration
-
-This portfolio is inspired by [Shivam Singh Mer's portfolio](https://shivammer.vercel.app/) with a focus on clean design, smooth animations, and modern web technologies.
 
 ## License
 

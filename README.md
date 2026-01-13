@@ -8,7 +8,7 @@ A modern, pixel-perfect developer portfolio built with Next.js 14, TypeScript, T
 - **Smooth Animations**: Framer Motion for fluid transitions and scroll reveals
 - **Responsive Design**: Mobile-first approach with glassmorphism effects
 - **Dual Theme Support**: Light and dark modes with system preference detection
-- **Interactive Components**: Hover effects, GSAP marquee animations, 3-project carousel with navigation arrows, typing animation, toast notifications, uniform card dimensions, and structured bullet-point descriptions
+- **Interactive Components**: Hover effects, GSAP marquee animations, 3-project carousel with navigation arrows, professional experience timeline, typing animation, toast notifications, uniform card dimensions, and structured bullet-point descriptions
 - **GSAP Marquees**: Ultra-smooth, infinite dual marquees with extended content for seamless loops
 - **Social Integration**: GitHub, LinkedIn, and X (Twitter) links with hover animations
 - **Contact Form**: Functional contact form with email integration
@@ -54,6 +54,7 @@ src/
 │   ├── hero.tsx          # Hero section
 │   ├── projects.tsx      # Projects showcase
 │   ├── skills.tsx        # Skills marquee
+│   ├── experience.tsx    # Professional experience timeline
 │   ├── contact.tsx       # Contact section
 │   └── footer.tsx        # Site footer
 ├── data/                 # Static data

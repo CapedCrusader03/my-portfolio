@@ -8,6 +8,7 @@ import {
   Twitter,
   Instagram,
   Globe,
+  Briefcase,
   type LucideIcon,
 } from "lucide-react";
 
@@ -23,4 +24,5 @@ export const Icons = {
   twitter: Twitter,
   instagram: Instagram,
   globe: Globe,
+  briefcase: Briefcase,
 };

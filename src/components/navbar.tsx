@@ -10,6 +10,23 @@ import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { ThemeToggle } from "@/components/theme-toggle";
 import { DATA } from "@/data/resume";
 
+const scrollToTop = () => {
+  window.scrollTo({ top: 0, behavior: "smooth" });
+};
+
+const scrollToSection = (href: string) => {
+  if (href.startsWith("#")) {
+    if (href === "#top" || href === "#home") {
+      scrollToTop();
+    } else {
+      const element = document.querySelector(href);
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth" });
+      }
+    }
+  }
+};
+
 export function Navbar() {
   const pathname = usePathname();
   const [isOpen, setIsOpen] = useState(false);
@@ -23,9 +40,12 @@ export function Navbar() {
     >
       <div className="flex h-16 w-full max-w-none items-center px-6 lg:px-8">
         {/* Logo/Name */}
-        <Link href="/" className="flex items-center space-x-2">
-          <span className="font-bold text-xl">{DATA.name}</span>
-        </Link>
+        <button
+          onClick={scrollToTop}
+          className="flex items-center space-x-2 font-bold text-xl hover:text-primary transition-colors cursor-pointer"
+        >
+          <span>{DATA.name}</span>
+        </button>
 
         {/* Desktop Navigation - Right aligned */}
         <nav className="hidden md:flex items-center space-x-6 ml-auto">
@@ -36,7 +56,13 @@ export function Navbar() {
               <Link
                 key={item.href}
                 href={item.href}
-                className={`flex items-center space-x-2 text-sm font-medium transition-colors hover:text-primary ${
+                onClick={(e) => {
+                  if (item.href.startsWith("#")) {
+                    e.preventDefault();
+                    scrollToSection(item.href);
+                  }
+                }}
+                className={`flex items-center space-x-2 text-sm font-medium transition-colors hover:text-primary cursor-pointer ${
                   isActive ? "text-primary" : "text-muted-foreground"
                 }`}
               >
@@ -65,8 +91,14 @@ export function Navbar() {
                   <Link
                     key={item.href}
                     href={item.href}
-                    onClick={() => setIsOpen(false)}
-                    className={`flex items-center space-x-3 text-lg font-medium transition-colors hover:text-primary ${
+                    onClick={(e) => {
+                      setIsOpen(false);
+                      if (item.href.startsWith("#")) {
+                        e.preventDefault();
+                        scrollToSection(item.href);
+                      }
+                    }}
+                    className={`flex items-center space-x-3 text-lg font-medium transition-colors hover:text-primary cursor-pointer ${
                       isActive ? "text-primary" : "text-muted-foreground"
                     }`}
                   >

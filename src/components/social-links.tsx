@@ -6,9 +6,9 @@ import { DATA } from "@/data/resume";
 
 export function SocialLinks() {
   const socialLinks = [
-    { name: "GitHub", url: "https://github.com/kshitij", icon: "github" },
-    { name: "LinkedIn", url: "https://linkedin.com/in/kshitij", icon: "linkedin" },
-    { name: "X", url: "https://twitter.com/kshitij", icon: "twitter" },
+    { name: "GitHub", url: "https://github.com/CapedCrusader03", icon: "github" },
+    { name: "LinkedIn", url: "https://www.linkedin.com/in/kshitij-kumar-a-sentient-bot/", icon: "linkedin" },
+    { name: "X", url: "https://x.com/KshitijCodes", icon: "twitter" },
   ];
 
   return (

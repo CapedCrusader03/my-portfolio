@@ -16,7 +16,7 @@ export function Experience() {
               Professional Experience
             </h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              My journey in software engineering and the impactful projects I've delivered.
+              My journey in software engineering.
             </p>
           </div>
         </BlurFade>

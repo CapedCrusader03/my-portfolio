@@ -34,6 +34,27 @@ export function Hero() {
           </Badge>
         </motion.div>
 
+        {/* Profile Photo */}
+        <motion.div
+          initial={{ opacity: 0, scale: 0.8 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.5, delay: 0.1 }}
+          className="flex justify-center"
+        >
+          <div className="relative">
+            <div className="w-32 h-32 sm:w-40 sm:h-40 rounded-full overflow-hidden border-4 border-primary/20 shadow-2xl">
+              <img
+                src="/ProfilePic cropped jpeg.jpeg"
+                alt="Kshitij Kumar"
+                className="w-full h-full object-cover"
+              />
+            </div>
+            <div className="absolute -bottom-2 -right-2 w-8 h-8 bg-green-500 rounded-full border-4 border-background flex items-center justify-center">
+              <div className="w-3 h-3 bg-white rounded-full"></div>
+            </div>
+          </div>
+        </motion.div>
+
         {/* Location */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}

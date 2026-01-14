@@ -16,17 +16,8 @@ export function Footer() {
               className="font-medium underline underline-offset-4 hover:text-primary"
             >
               Next.js
-            </Link>
-            . Hosted on{" "}
-            <Link
-              href="https://vercel.com"
-              target="_blank"
-              rel="noreferrer"
-              className="font-medium underline underline-offset-4 hover:text-primary"
-            >
-              Vercel
-            </Link>
-            .
+            </Link>{" "}
+            by Kshitij Kumar.
           </p>
         </div>
 

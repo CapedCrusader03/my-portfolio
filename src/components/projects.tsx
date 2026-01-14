@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -10,8 +10,22 @@ import { DATA } from "@/data/resume";
 
 export function Projects() {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [projectsPerView, setProjectsPerView] = useState(3);
   const projects = DATA.projects;
-  const projectsPerView = 3;
+
+  useEffect(() => {
+    const updateProjectsPerView = () => {
+      const newProjectsPerView = window.innerWidth < 1200 ? 1 : 3;
+      setProjectsPerView(newProjectsPerView);
+      // Reset currentIndex when switching between mobile and desktop
+      setCurrentIndex(0);
+    };
+
+    updateProjectsPerView();
+    window.addEventListener('resize', updateProjectsPerView);
+
+    return () => window.removeEventListener('resize', updateProjectsPerView);
+  }, []);
 
   const nextProject = () => {
     setCurrentIndex((prevIndex) =>
@@ -81,7 +95,7 @@ export function Projects() {
                     duration: 0.5,
                     ease: [0.25, 0.46, 0.45, 0.94]
                   }}
-                  className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+                  className={`grid gap-6 ${projectsPerView === 1 ? 'grid-cols-1' : 'grid-cols-1 md:grid-cols-2 lg:grid-cols-3'}`}
                 >
                   {visibleProjects.map((project, index) => (
                     <motion.div

@@ -24,6 +24,8 @@ export function Contact() {
     }
   };
 
+// Test comment for redeployment
+
   return (
     <section id="contact" className="py-20">
       <div className="w-full max-w-none px-6 lg:px-8">

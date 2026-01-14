@@ -42,7 +42,7 @@ export function Skills() {
   useEffect(() => {
     if (!marqueeRef1.current || !marqueeRef2.current) return;
 
-    // Create smooth marquee animations
+    // Create smooth marquee animations for desktop
     const tl1 = gsap.timeline({ repeat: -1, paused: false });
     tl1.to(marqueeRef1.current, {
       x: '-50%', // Move through duplicated content
@@ -69,7 +69,7 @@ export function Skills() {
 
   return (
     <section className="py-20 overflow-hidden">
-      <div className="container max-w-6xl px-4 mx-auto">
+      <div className="container max-w-7xl px-4 sm:px-6 lg:px-8 mx-auto">
         <BlurFade>
           <div className="text-center mb-16">
             <h2 className="text-3xl font-bold tracking-tight sm:text-4xl mb-4">
@@ -81,18 +81,98 @@ export function Skills() {
           </div>
         </BlurFade>
 
-        <div className="space-y-6">
+        {/* Mobile categorized layout - hidden on md and up */}
+        <div className="block md:hidden">
+          <BlurFade delay={0.1}>
+            <div className="space-y-8">
+              {/* Languages */}
+              <div>
+                <h3 className="text-lg font-semibold mb-4 text-center">Languages</h3>
+                <div className="flex flex-wrap justify-center gap-3">
+                  {["Python", "Java", "TypeScript", "JavaScript", "C++", "SQL"].map((skill, index) => (
+                    <span key={skill} className={`inline-flex items-center px-3 py-2 rounded-lg text-sm font-medium transition-all duration-300 whitespace-nowrap border ${getSkillColor(skill, index)}`}>
+                      {skill}
+                    </span>
+                  ))}
+                </div>
+              </div>
+
+              {/* Backend/Distributed Systems */}
+              <div>
+                <h3 className="text-lg font-semibold mb-4 text-center">Backend/Distributed Systems</h3>
+                <div className="flex flex-wrap justify-center gap-3">
+                  {["Spring Boot", "FastAPI", "Spring Cloud", "Node.js", "Apache Kafka", "RabbitMQ", "Flink", "Hibernate"].map((skill, index) => (
+                    <span key={skill} className={`inline-flex items-center px-3 py-2 rounded-lg text-sm font-medium transition-all duration-300 whitespace-nowrap border ${getSkillColor(skill, index + 6)}`}>
+                      {skill}
+                    </span>
+                  ))}
+                </div>
+              </div>
+
+              {/* AI/LLM Engineering */}
+              <div>
+                <h3 className="text-lg font-semibold mb-4 text-center">AI/LLM Engineering</h3>
+                <div className="flex flex-wrap justify-center gap-3">
+                  {["LangGraph", "LlamaIndex", "Agentic Workflows", "PgVector", "RAG Pipelines"].map((skill, index) => (
+                    <span key={skill} className={`inline-flex items-center px-3 py-2 rounded-lg text-sm font-medium transition-all duration-300 whitespace-nowrap border ${getSkillColor(skill, index + 14)}`}>
+                      {skill}
+                    </span>
+                  ))}
+                </div>
+              </div>
+
+              {/* Frontend */}
+              <div>
+                <h3 className="text-lg font-semibold mb-4 text-center">Frontend</h3>
+                <div className="flex flex-wrap justify-center gap-3">
+                  {["React", "Next.js", "Angular", "HTML", "CSS"].map((skill, index) => (
+                    <span key={skill} className={`inline-flex items-center px-3 py-2 rounded-lg text-sm font-medium transition-all duration-300 whitespace-nowrap border ${getSkillColor(skill, index + 19)}`}>
+                      {skill}
+                    </span>
+                  ))}
+                </div>
+              </div>
+
+              {/* Databases */}
+              <div>
+                <h3 className="text-lg font-semibold mb-4 text-center">Databases</h3>
+                <div className="flex flex-wrap justify-center gap-3">
+                  {["PostgreSQL", "MongoDB", "Redis", "Oracle", "MySQL", "Snowflake", "Elasticsearch"].map((skill, index) => (
+                    <span key={skill} className={`inline-flex items-center px-3 py-2 rounded-lg text-sm font-medium transition-all duration-300 whitespace-nowrap border ${getSkillColor(skill, index + 24)}`}>
+                      {skill}
+                    </span>
+                  ))}
+                </div>
+              </div>
+
+              {/* Cloud/DevOps/Monitoring */}
+              <div>
+                <h3 className="text-lg font-semibold mb-4 text-center">Cloud/DevOps/Monitoring</h3>
+                <div className="flex flex-wrap justify-center gap-3">
+                  {["AWS", "Docker", "Kubernetes", "Airflow", "Git", "Apache Tomcat", "NginX", "Maven", "Prometheus", "Grafana"].map((skill, index) => (
+                    <span key={skill} className={`inline-flex items-center px-3 py-2 rounded-lg text-sm font-medium transition-all duration-300 whitespace-nowrap border ${getSkillColor(skill, index + 31)}`}>
+                      {skill}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </BlurFade>
+        </div>
+
+        {/* Desktop marquee - hidden on smaller screens */}
+        <div className="hidden md:block space-y-4 sm:space-y-6">
           {/* First marquee - left to right */}
           <BlurFade delay={0.1}>
-            <div className="relative overflow-hidden py-4">
+            <div className="relative overflow-hidden py-3 sm:py-4">
               {/* GSAP marquee container - left to right */}
-              <div ref={marqueeRef1} className="flex space-x-4">
+              <div ref={marqueeRef1} className="flex space-x-2 sm:space-x-3 lg:space-x-4">
                 {skillsSet1.map((skill, index) => (
                   <div
                     key={`left-${skill}-${index}`}
                     className="flex-shrink-0 hover:scale-105 transition-transform duration-300"
                   >
-                    <span className={`inline-flex items-center px-3 py-2 rounded-lg text-sm font-medium transition-all duration-300 whitespace-nowrap border ${getSkillColor(skill, index)}`}>
+                    <span className={`inline-flex items-center px-2 py-1.5 sm:px-3 sm:py-2 rounded-lg text-xs sm:text-sm font-medium transition-all duration-300 whitespace-nowrap border ${getSkillColor(skill, index)}`}>
                       {skill}
                     </span>
                   </div>
@@ -103,15 +183,15 @@ export function Skills() {
 
           {/* Second marquee - right to left */}
           <BlurFade delay={0.2}>
-            <div className="relative overflow-hidden py-4">
+            <div className="relative overflow-hidden py-3 sm:py-4">
               {/* GSAP marquee container - right to left */}
-              <div ref={marqueeRef2} className="flex space-x-4">
+              <div ref={marqueeRef2} className="flex space-x-2 sm:space-x-3 lg:space-x-4">
                 {skillsSet2.map((skill, index) => (
                   <div
                     key={`right-${skill}-${index}`}
                     className="flex-shrink-0 hover:scale-105 transition-transform duration-300"
                   >
-                    <span className={`inline-flex items-center px-3 py-2 rounded-lg text-sm font-medium transition-all duration-300 whitespace-nowrap border ${getSkillColor(skill, index)}`}>
+                    <span className={`inline-flex items-center px-2 py-1.5 sm:px-3 sm:py-2 rounded-lg text-xs sm:text-sm font-medium transition-all duration-300 whitespace-nowrap border ${getSkillColor(skill, index)}`}>
                       {skill}
                     </span>
                   </div>

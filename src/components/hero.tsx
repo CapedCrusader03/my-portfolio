@@ -90,14 +90,21 @@ export function Hero() {
           className="flex flex-col sm:flex-row gap-4 justify-center pt-8"
         >
           <a
+            href="/Kshitij_Kumar_Resume.pdf"
+            download="Kshitij_Kumar_Resume.pdf"
+            className="inline-flex items-center justify-center rounded-md bg-blue-600 px-8 py-3 text-sm font-medium text-white shadow hover:bg-blue-700 transition-colors"
+          >
+            Download Resume
+          </a>
+          <a
             href="#projects"
-            className="inline-flex items-center justify-center rounded-md bg-primary px-8 py-3 text-sm font-medium text-primary-foreground shadow hover:bg-primary/90 transition-colors"
+            className="inline-flex items-center justify-center rounded-md bg-green-600 px-8 py-3 text-sm font-medium text-white shadow hover:bg-green-700 transition-colors"
           >
             View My Work
           </a>
           <a
             href="#contact"
-            className="inline-flex items-center justify-center rounded-md border border-border bg-background px-8 py-3 text-sm font-medium shadow hover:bg-accent hover:text-accent-foreground transition-colors"
+            className="inline-flex items-center justify-center rounded-md bg-purple-600 px-8 py-3 text-sm font-medium text-white shadow hover:bg-purple-700 transition-colors"
           >
             Get In Touch
           </a>

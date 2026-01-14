@@ -10,29 +10,6 @@ export function Hero() {
   return (
     <section className="flex min-h-screen flex-col items-center justify-center px-4 text-center">
       <div className="max-w-4xl space-y-8">
-        {/* Status Badge */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-          className="flex justify-center"
-        >
-          <Badge
-            variant="secondary"
-            className="px-4 py-2 text-sm font-medium bg-green-500/10 text-green-400 border-green-500/20 hover:bg-green-500/20"
-          >
-            <motion.div
-              animate={{ scale: [1, 1.2, 1] }}
-              transition={{
-                duration: 2,
-                repeat: Infinity,
-                ease: "easeInOut",
-              }}
-              className="w-2 h-2 bg-green-400 rounded-full mr-2"
-            />
-            Available for Work
-          </Badge>
-        </motion.div>
 
         {/* Profile Photo */}
         <motion.div
@@ -49,8 +26,23 @@ export function Hero() {
                 className="w-full h-full object-cover"
               />
             </div>
-            <div className="absolute -bottom-2 -right-2 w-8 h-8 bg-green-500 rounded-full border-4 border-background flex items-center justify-center">
-              <div className="w-3 h-3 bg-white rounded-full"></div>
+
+            {/* Status Text to the Right */}
+            <div className="absolute left-full ml-4 top-1/2 transform -translate-y-1/2">
+              <div className="bg-green-500/90 backdrop-blur-sm rounded-lg px-2 py-1 border border-green-400/30">
+                <div className="flex items-center space-x-1">
+                  <motion.div
+                    animate={{ scale: [1, 1.2, 1] }}
+                    transition={{
+                      duration: 2,
+                      repeat: Infinity,
+                      ease: "easeInOut",
+                    }}
+                    className="w-2 h-2 bg-green-300 rounded-full"
+                  />
+                  <span className="text-xs font-medium text-white whitespace-nowrap">Available for Work</span>
+                </div>
+              </div>
             </div>
           </div>
         </motion.div>
